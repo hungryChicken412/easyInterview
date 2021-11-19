@@ -1,4 +1,4 @@
-# easyInterview
+# easyInterview V0.8B
 An interview engine for businesses, interview those who are actually qualified and are worth your time!
 
 ## Quick Overview
