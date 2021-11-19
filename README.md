@@ -10,6 +10,10 @@ An interview engine for businesses, interview those who are actually qualified a
 ## Tech Overview
 
 - Front-end
--- Angular, Django-Rest-API, HTML, CSS, TS
+  - Angular, 
+  - Django-Rest-API, 
+  - HTML, CSS, TS
 - Back-End
--- Django, Python, SQL
+  - Django,
+  - Python
+  - SQL
