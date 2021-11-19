@@ -1,0 +1,52 @@
+Django-machina
+##############
+
+Django-machina is a forum framework for Django providing a way to build community-driven websites.
+It offers a full-featured yet very extensible forum solution:
+
+* Topic and post editing
+* Forums tree management
+* Per-forum permissions
+* Anonymous posting
+* Polls and attachments
+* Moderation and pre-moderation
+* Forum conversations search
+* ...
+
+Django-machina was built with integration in mind: the application is designed to be used inside
+existing Django applications. It is not a standalone forum solution.
+
+Django-machina was built with customization and extensibility in mind: each single functionality
+of the application can be customized or overriden to accommodate with your needs.
+
+.. contents:: Table of Contents
+    :local:
+
+Documentation
+=============
+
+Online browsable documentation is available at https://django-machina.readthedocs.org.
+
+Head over to the documentation for all the details on how to set up your forum and how to customize
+it to suit your needs.
+
+Requirements
+============
+
+Python 3.5+, Django 2.2+. Please refer to the requirements_ section of the documentation for a full
+list of dependencies.
+
+.. _requirements: https://django-machina.readthedocs.org/en/stable/getting_started.html#requirements
+
+Authors
+=======
+
+Morgan Aubert (`@ellmetha <https://github.com/ellmetha>`_) and contributors_. See ``AUTHORS`` for
+more details.
+
+.. _contributors: https://github.com/ellmetha/django-machina/contributors
+
+License
+=======
+
+BSD. See ``LICENSE`` for more details.

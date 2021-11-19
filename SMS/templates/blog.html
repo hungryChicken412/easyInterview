@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Blog
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="blog-header">
+    <img src="media/{{ image }}" alt="">
+    <h2 class="heading-type-1">{{ title }}</h2>
+    <hr class="hr-stylish">
+</div>
+
+
+<section class="blog-content">
+    <p>
+        {{ content | safe}}
+    </p>
+    <p class="text-fancy">
+        {{ published }}
+    </p>
+</section>
+
+<hr class="hr-stylish">
+
+  
+<section class="text-gray-600 body-font blog-parent flex justify-center flex-col text-center">
+
+  <div id="articleHeading" style="margin-top: 20px;">
+    <h2 class="heading-type-1">LATEST ARTICLE</h2>
+    <hr class="hr-stylish">
+    <br>
+    <br>
+  </div>
+  <!-- article1 -->
+  {% for post in posts %}
+  <div class="flex flex-wrap overflow-hidden justify-center my-5">
+
+    <div class="w-full overflow-hidden lg:w-1/3">
+      <div class="img-holder" style="background-image: url('media/{{post.image}}')" >
+      </div>
+    </div>
+    
+    <div class="w-full overflow-hidden lg:w-1/2 text-left px-2 mx-10 text-white">
+      <div class="card-heading">
+        {{post.title}}
+      </div>
+      <div class="card-body text-gray-300">
+        {{post.intro | safe}}
+      </div>
+      <div class="card-footer text-gray-500">
+        <p>{{post.published}}</p>
+        <a href="/{{post.slug}}" class="button-fancy">
+          ... Read More!
+        </a>
+      </div>
+    </div>
+    
+  
+  </div>
+  <hr class="hr-stylish-subdivider my-10">
+  {% endfor %}
+
+  
+
+
+  <hr class="hr-stylish my-10">
+  
+
+  
+</section>
+
+{% endblock content %}
+
+{% block scripts %}
+
+{% endblock scripts %}

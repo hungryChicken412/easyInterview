@@ -1,0 +1,65 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONTAWESOME CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap" rel="stylesheet" />
+  
+    <!-- tailwind css  -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  
+  
+      <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href= {% static 'css/utility.css' %} />
+    <link rel="stylesheet" href={% static 'css/style.css' %} />
+    <link rel="stylesheet" href={% static 'css/mobile.css' %} />
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+
+  {% block extra_css %}
+  {% endblock extra_css %}
+  <body>
+    {% include 'main/includes/navbar.html' %}
+    {% include "main/includes/messages.html" %}
+
+    
+
+    <section id="mainContent" class="mainContentContainer">
+      {% block content %}
+      {% endblock content %}
+    </section>
+
+
+    
+    {% include 'main/includes/footer.html' %}
+
+    
+    {% block scripts %}
+    {% endblock scripts %}
+
+   
+   <!--Custom js ADD-->
+   <script type="text/javascript" src={% static 'js/main.js' %}></script>
+  </body>
+  <script>
+        
+</script>
+</html>
+
+

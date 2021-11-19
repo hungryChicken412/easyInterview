@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Well Done! Now</h3>
+<h4>Step: 2</h4>
+<p class="flow-text">Select a <underline data-tooltip="Or roadmap (ok I'm tired of writing this over and over and over again!)">course!</underline></p>
+
+    <div class="row">
+        {% for tut, url in part_ones.items %}
+
+            <div class="col s12 m6 l4">
+                <a href="{{url}}", style="color:#000">
+                    <div class="card hoverable">
+                        <div class="card-content">
+                            <div class="card-title" style="font-weight: bold;">{{tut.title}}</div>
+                            <p style="font-size:70%">{{tut.published}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+my profile
+{% endblock title %}
+
+{% block content %}
+
+<!-- MODAL -->
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Update your Profile</h4>
+        <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <br>
+            <button class="btn" type="submit">Update</button>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
+
+
+
+<div class="ui segment">
+    {% if confirm %}
+        <div class="ui green message">Your profile has been updated</div>
+    {% endif %}
+    <h3>my profile: {{request.user}}</h3>
+    <div class="ui grid">
+        <div class='row'>
+            <div class='six wide column'>
+                <img class="ui medium rounded image" src={{profile.avatar.url}}>
+                <div class="row mt-5">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Update your profile</a>
+                </div>
+            </div>
+            <div class="ten wide column">
+                <table class="ui table">
+                    <tbody>
+                        <tr>
+                            <td>username</td>
+                            <td>{{profile.user}}</td>
+                        </tr>
+                        <tr>
+                            <td>Courses Completed</td>
+                            <td>{{profile.get_likes_given_no}}</td>
+                        </tr>
+                        <tr>
+                            <td>number of likes received</td>
+                            <td>{{profile.get_likes_recieved_no}}</td>
+                        </tr>
+
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+          
+
+</script>
+
+{% endblock content %}

@@ -1,0 +1,68 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Log In
+{% endblock title %}
+
+
+
+{% block content %}
+
+<div class="heading-type-1">
+  <br>
+  Log In
+</div>
+
+<hr class="hr-stylish-subdivider">
+
+<div class="lcont text-gray-100 text-center">
+  <div id="#loginContaienr" class="container necont">
+    <br>
+
+    {% if user.is_authenticated %}
+
+    <h1>You Are Already Logged In!</h1>
+    <p class="fancy-text">head over to <a class="btn" href="/forums">Home</a></p>
+
+    {% else %}
+    
+          <form method="POST">
+              {% csrf_token %}
+              <p class="form-field">
+                <label class="form-label">Username</label>
+                {{form.username}}
+              </p>
+              <p class="form-field">
+                <label class="form-label">Password</label>
+                {{form.password}}
+              </p>
+              <br>
+              <button class="button-fancy underline" type="submit">login</button>
+          </form>
+          <br>
+          <p><a href="/password_reset/" class="text-fancy underline" style="padding:0;margin:0;" target="blank"><strong>Forgot Password</strong></a></p>
+          <p>Don't have an account? <a href="/register/" class="text-fancy underline" style="padding:0;margin:0;" target="blank"><strong>register Now!</strong></a></p>
+          <br>
+    </div>
+</div>
+<br>
+<hr class="hr-stylish">
+
+  {% endif %}
+</div>
+
+
+{% endblock content %}
+
+{% block extra_css %}
+
+
+
+{% endblock extra_css %}
+
+{% block scripts %}
+
+{% endblock scripts %}

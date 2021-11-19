@@ -1,0 +1,30 @@
+{% load static %}
+<nav>
+  <div class="nav-parent">
+      <div class="navbar">
+          <div class="logo">
+            {% if details %}
+            <img src="/media/{{ details.logo }}" style="border-radius: 32px;" width="36px">
+              <!-- <h1>logo</h1> -->
+            {% else %}
+            <a href="/" class="button-fancy text-fancy underline" style="color:white;">Games With <span style="color:rgb(187, 39, 64);">Love</span></a>
+            {% endif %}
+          </div>
+          <ul class="nav-menu">
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="/blog/">Blog</a></li>
+            <li class="nav-item"><a href="/forums/">Forums</a></li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item"><a href="/logout/">Sign Out</a></li>
+            {% else %}
+            <li class="nav-item"><a href="/login/">Sign In</a></li>
+            {% endif %}
+          </ul>
+          <div class="hamburger">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+          </div>
+      </div>
+  </div>
+</nav>

@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Games With Love - Home
+{% endblock title %}
+
+
+{% block content %}
+  <div class="hero-parent max-width-parent" style="background-image: url('media/{{details.heroImage}}')">
+    <div class="hero">
+      <div class="hero-text text-left">
+        <h2>
+          Making
+        </h2>
+        <h1>
+          Games With <span class="animatedLove">Love</span>
+        </h1>
+        <h2>
+          <span class="text-fancy">For Everyone!</span>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="flex flex-wrap overflow-hidden justify-center my-5">
+
+    <div class="w-full overflow-hidden lg:w-1/3">
+      <div class="img-holder" style="background-image: url('/media/{{aboutThumb.thumbnail}}'); border-radius: 120px;">
+      </div>
+    </div>
+    
+    <div class="w-full overflow-hidden lg:w-1/2 text-left px-2 mx-10 text-white">
+      <div class="card-body aboutText">
+        {{details.description | safe}}
+      </div>
+    </div>
+    
+  
+  </div>
+
+  <section id="Screenshots">
+
+    <div class="ourgamesContainer">
+      {% for screenshot in screenshots %}
+      <div class="mx-2">
+        <div class="img-holder" style="background-image: url('media/{{screenshot.thumbnail}}');background-position:center;" >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <hr class="hr-stylish">
+  </section>
+  
+  <section id="games">
+
+    <div id="articleHeading">
+      <br>
+      <h2 class="heading-type-1">OUR GAMES</h2>
+      <hr class="hr-stylish">
+    </div>
+    <div class="ourgamesContainer">
+      {% for game in games %}
+        <div class="card">
+          <div class="w-full overflow-hidden">
+            <div class="img-holder" style="background-image: url('/media/{{game.thumbnail}}');background-position:center;" >
+            </div>
+          </div>
+          <div class="card-image">
+          </div>
+          <div class="card-content">
+            <div class="card-heading">
+              {{game.title}}
+            </div>
+            
+            <div class="card-body">
+              {{game.description | safe}}
+            </div>
+            <div class="card-footer">
+              <div class="price">
+                {{game.price}}$
+              </div>
+              <a href="{{game.buy_url}}" class="button-fancy">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Buy Now!
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+    
+  </section>
+
+  
+  <section class="text-gray-600 body-font blog-parent flex justify-center flex-col text-center">
+
+    <div id="articleHeading" style="margin-top: 20px;">
+      <h2 class="heading-type-1">LATEST ARTICLE</h2>
+      <hr class="hr-stylish">
+      <br>
+      <br>
+    </div>
+    <!-- article1 -->
+    {% for post in posts %}
+    <div class="flex flex-wrap overflow-hidden justify-center my-5">
+
+      <div class="w-full overflow-hidden lg:w-1/3">
+        <div class="img-holder" style="background-image: url('media/{{post.image}}')" >
+        </div>
+      </div>
+      
+      <div class="w-full overflow-hidden lg:w-1/2 text-left px-2 mx-10 text-white">
+        <div class="card-heading">
+          {{post.title}}
+        </div>
+        <div class="card-body text-gray-300">
+          {{post.intro | safe}}
+        </div>
+        <div class="card-footer text-gray-500">
+          <p>{{post.published}}</p>
+          <a href="/{{post.slug}}" class="button-fancy">
+            ... Read More!
+          </a>
+        </div>
+      </div>
+      
+    
+    </div>
+    <hr class="hr-stylish-subdivider my-10">
+    {% endfor %}
+
+    
+
+
+    <hr class="hr-stylish my-10">
+    
+
+    
+  </section>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function(){
+  $('.ourgamesContainer').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    dots: true,
+    infinite: true,
+    autoplaySpeed: 2000,
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+      }
+    },
+
+  ],
+    
+  });
+});
+</script>
+{% endblock scripts %}

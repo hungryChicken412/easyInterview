@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="row">
+
+        <div class="col s12, m8, l8">
+            <div class="container-fluid" style="height: auto !important;" align="left">
+                
+                <h3>{{course.title}}</h3>
+                <p style="font-size:70%">Published {{course.published}}</p>
+                {{course.content }}
+
+                <form asction="#" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <textarea id="code" class="materialize-textarea" name="solutionCode"></textarea>
+                    <button class="btn" type="submit">Submit</button>
+
+                </form>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    
+
+
+    <script>
+
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+         
+
+
+        function changeCard(index){
+        var elements = document.getElementsByClassName("flashcard");
+        var blocks = document.getElementsByClassName("collapsible-body");
+
+        for(var i = 0; i < elements.length; i++) {
+            $(".flashcard").eq(i).removeClass("active");
+            blocks[i].style.display = "none";  
+        }
+        blocks[index].style.display = "block";  
+        $(".flashcard").eq(index).addClass("active");
+        blocks[index].parentElement.scrollIntoView();
+    }
+    </script>
+
+
+{% endblock %}
